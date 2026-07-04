@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Chamados | Med Plus</title>
+  <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/a/AVvXsEhOTG15yPLfQ0IHI5vSAC0MKMDHWgJDZynAPSvwVDIkVLiPX5A6Qf4blmZTxVxcXGB-_Op0nqPHkHJPIdyVdYKm_nOaL35Dw1pgHQ5yR6E33iFMhCrz5t2d7Ab4Rps1ky_5eduohZstcSCGSh_4Jk2TukKd1l24tkRtgeRWw-_DzZZ8UnRLHtiYF5x0bzR6" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Basic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="painel">
+  <header class="app-header panel-header">
+    <div class="header-brand panel-brand">
+      <img class="brand-logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywsdWKH6rlDURrDoENalBtkXnhxike5bP4lesilVl-vBhsPrYmIIDLESb8VpR1e6AcRyxgXcyW8snNH4tSyIaJmTizACfOeqQYUjoaXhPE0MmMlHigietjYjKFLpEx5lccR3l10Q5RBwQMNBG8ENz6rAsMubobIyLRZa5DOLpWFtkMEH0Bx8_2LPVZFmb/s16000/logotipo-med-plus2025-1.png" alt="Med Plus" />
+    </div>
+
+    <h1 class="panel-title">Painel de Chamados</h1>
+
+    <nav class="header-actions" aria-label="Ações do painel">
+      <!-- <a class="btn btn-ghost" href="index.html">Novo chamado</a> -->
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Alternar tema">
+        <span id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="dashboard-grid" id="dashboardCards">
+      <article class="metric-card">
+        <span>Total</span>
+        <strong id="metricTotal">0</strong>
+      </article>
+      <article class="metric-card">
+        <span>Agendados</span>
+        <strong id="metricAgendados">0</strong>
+      </article>
+      <article class="metric-card">
+        <span>Em atendimento</span>
+        <strong id="metricAtendimento">0</strong>
+      </article>
+      <article class="metric-card danger">
+        <span>Alta prioridade</span>
+        <strong id="metricAlta">0</strong>
+      </article>
+    </section>
+
+    <section class="content-card">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">Filtros</span>
+          <h2>Localizar chamados</h2>
+        </div>
+        <div class="filters-actions">
+          <button class="btn btn-outline" type="button" id="btnClearFilters">Limpar filtros</button>
+          <button class="btn btn-primary" type="button" id="btnReloadPanel">Atualizar</button>
+        </div>
+      </div>
+
+      <form class="filters-grid" id="filtersForm">
+        <label>
+          <span>Nome do técnico</span>
+          <select id="filterTecnico">
+            <option value="">Todos os técnicos</option>
+          </select>
+        </label>
+        <label>
+          <span>Cliente</span>
+          <input id="filterCliente" type="search" placeholder="Digite o cliente" />
+        </label>
+        <label>
+          <span>CNPJ</span>
+          <input id="filterCnpj" type="search" placeholder="00.000.000/0000-00" />
+        </label>
+        <label>
+          <span>Data inicial</span>
+          <input id="filterDataInicio" type="date" />
+        </label>
+        <label>
+          <span>Data final</span>
+          <input id="filterDataFim" type="date" />
+        </label>
+        <label>
+          <span>Status</span>
+          <select id="filterStatus">
+            <option value="">Todos</option>
+            <option>Aberto</option>
+            <option>Agendado</option>
+            <option>Em atendimento</option>
+            <option>Concluído</option>
+            <option>Cancelado</option>
+          </select>
+        </label>
+        <label>
+          <span>Prioridade</span>
+          <select id="filterPrioridade">
+            <option value="">Todas</option>
+            <option>Baixa</option>
+            <option>Média</option>
+            <option>Alta</option>
+            <option>Urgente</option>
+          </select>
+        </label>
+      </form>
+    </section>
+
+    <section class="content-card chamados-card">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">Resultado</span>
+          <h2>Chamados encontrados</h2>
+        </div>
+        <span class="result-count" id="resultCount">0 registros</span>
+      </div>
+
+      <div class="calls-list" id="callsList"></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="detailsModal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
+      <header class="modal-header">
+        <div>
+          <span class="eyebrow">Detalhes</span>
+          <h2 id="detailsTitle">Chamado</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close-modal="detailsModal" aria-label="Fechar modal">✕</button>
+      </header>
+      <div id="detailsBody" class="details-body"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

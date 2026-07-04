@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda de Campo | Med Plus</title>
+  <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/a/AVvXsEhOTG15yPLfQ0IHI5vSAC0MKMDHWgJDZynAPSvwVDIkVLiPX5A6Qf4blmZTxVxcXGB-_Op0nqPHkHJPIdyVdYKm_nOaL35Dw1pgHQ5yR6E33iFMhCrz5t2d7Ab4Rps1ky_5eduohZstcSCGSh_4Jk2TukKd1l24tkRtgeRWw-_DzZZ8UnRLHtiYF5x0bzR6" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Basic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="cadastro">
+  <header class="app-header">
+    <div class="header-brand">
+      <img class="brand-logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywsdWKH6rlDURrDoENalBtkXnhxike5bP4lesilVl-vBhsPrYmIIDLESb8VpR1e6AcRyxgXcyW8snNH4tSyIaJmTizACfOeqQYUjoaXhPE0MmMlHigietjYjKFLpEx5lccR3l10Q5RBwQMNBG8ENz6rAsMubobIyLRZa5DOLpWFtkMEH0Bx8_2LPVZFmb/s16000/logotipo-med-plus2025-1.png" alt="Med Plus" />
+      <div>
+        <span class="eyebrow">Sistema de Agenda de Campo</span>
+        <h1>Cadastro de chamado</h1>
+      </div>
+    </div>
+
+    <nav class="header-actions" aria-label="Ações principais">
+      <a class="btn btn-ghost" href="painel.html">Painel de Chamados</a>
+      <button class="btn btn-ghost" type="button" id="btnOpenAdmin">Área Administrativa</button>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Alternar tema">
+        <span id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="content-card">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">Novo registro</span>
+          <h2 id="formTitle">Cadastrar Chamado / Atendimento</h2>
+        </div>
+        <button class="btn btn-ghost" type="button" id="btnResetForm">Limpar formulário</button>
+      </div>
+
+      <form id="chamadoForm" class="form-grid" autocomplete="off"></form>
+
+      <div class="form-footer">
+        <button class="btn btn-primary" type="submit" form="chamadoForm" id="btnSalvar">Salvar chamado</button>
+        <button class="btn btn-outline" type="button" id="btnPreviewPayload">Ver dados antes de enviar</button>
+        <button class="btn btn-ghost" type="button" id="btnNovoChamado">Novo chamado</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="adminModal" aria-hidden="true">
+    <section class="modal modal-xl" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <header class="modal-header">
+        <div>
+          <span class="eyebrow">Administração</span>
+          <h2 id="adminTitle">Editar e excluir chamados</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close-modal="adminModal" aria-label="Fechar modal">✕</button>
+      </header>
+
+      <div class="admin-tools">
+        <label class="search-box">
+          <span>Pesquisar</span>
+          <input id="adminSearch" type="search" placeholder="Cliente, CNPJ, técnico, status ou protocolo..." />
+        </label>
+        <button class="btn btn-outline" type="button" id="btnReloadAdmin">Atualizar lista</button>
+      </div>
+
+      <div class="admin-editor is-hidden" id="adminEditor">
+        <div class="section-title compact">
+          <div>
+            <span class="eyebrow">Edição rápida</span>
+            <h3>Alterar chamado selecionado</h3>
+          </div>
+          <button class="btn btn-ghost" type="button" id="btnCancelAdminEdit">Cancelar edição</button>
+        </div>
+        <form id="adminForm" class="form-grid compact-grid"></form>
+        <div class="form-footer left">
+          <button class="btn btn-primary" type="submit" form="adminForm">Salvar alterações</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Ações</th>
+              <th>Protocolo</th>
+              <th>Cliente</th>
+              <th>CNPJ</th>
+              <th>Técnico</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Prioridade</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <tr><td colspan="8">Carregando chamados...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="payloadModal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="payloadTitle">
+      <header class="modal-header">
+        <div>
+          <span class="eyebrow">Conferência</span>
+          <h2 id="payloadTitle">Dados do formulário</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close-modal="payloadModal" aria-label="Fechar modal">✕</button>
+      </header>
+      <pre class="payload-preview" id="payloadPreview"></pre>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
