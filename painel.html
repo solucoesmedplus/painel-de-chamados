@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MED PLUS+ | Painel de Chamados</title>
+  <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEnOYKhxs5CbcqMeT-HttvPM5xzM1Gk_jV-ca9KFkPjk3x4O4TxDfj8fb7TMnOSiqRZgmbYDyKocyrcpR10Oij6Fhs1WZjzoe_5eAXpLEUS4jT5cEJkkdppXi6frqBWKbQjg06WeVpSRdLx1M2m91LhE-siLnAp0raZ5mOh1l3hMmehkoLSzsHRmPF_fwx/w400-h400/favicon-chamados.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app-body page-painel">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-brand">
+      <a class="brand brand-logo-link" href="#" aria-label="MED PLUS+ - Abertura de Chamados">
+        <img class="brand-logo-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywsdWKH6rlDURrDoENalBtkXnhxike5bP4lesilVl-vBhsPrYmIIDLESb8VpR1e6AcRyxgXcyW8snNH4tSyIaJmTizACfOeqQYUjoaXhPE0MmMlHigietjYjKFLpEx5lccR3l10Q5RBwQMNBG8ENz6rAsMubobIyLRZa5DOLpWFtkMEH0Bx8_2LPVZFmb/s16000/logotipo-med-plus2025-1.png" alt="MED PLUS+" loading="eager" />
+      </a>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Menu lateral">
+      <a class="nav-link active" href="painel.html">📋 Painel de Chamados</a>
+      <a class="nav-link disabled" href="https://solucoesmedplus.github.io/central-servicos/checklist-NX.html" target="_blank" rel="noopener noreferrer">🗂️ Checklist NX</a>
+      <a class="nav-link disabled" href="https://solucoesmedplus.github.io/central-servicos/checklist-clean-install-NX.html" target="_blank" rel="noopener noreferrer">🗂️ Checklist Clean Install NX</a>
+      <a class="nav-link disabled" href="https://solucoesmedplus.github.io/central-servicos/checklist-reinstall-NX.html" target="_blank" rel="noopener noreferrer">🗂️ Checklist Reinstall NX</a>
+      <a class="nav-link disabled" href="https://solucoesmedplus.github.io/central-servicos/checklist-cr10-12-15.html" target="_blank" rel="noopener noreferrer">🗂️ Checklist-CR10-X | CR12-X | CR15-X</a>
+      <a class="nav-link disabled" href="https://solucoesmedplus.github.io/central-servicos/checklist_cr 30x-30xm.html" target="_blank" rel="noopener noreferrer">🗂️ Checklist-CR30-X | CR30-XM</a>
+      <a class="nav-link disabled" href="https://solucoesmedplus.github.io/central-servicos/checklist_CR25_CR 35x.html" target="_blank" rel="noopener noreferrer">🗂️ Checklist-CR25 | CR35-X</a>
+      <a class="nav-link disabled" href="https://solucoesmedplus.github.io/central-servicos/checklist_CR75_CR 85x.html" target="_blank" rel="noopener noreferrer">🗂️ Checklist-CR75 | CR85-X</a>
+      <!-- <a class="nav-link disabled" href="#">⚙️ Link futuro 08</a> -->
+      <!-- <a class="nav-link disabled" href="#">🔐 Link futuro 09</a> -->
+      <!-- <a class="nav-link disabled" href="#">🚪 Link futuro 10</a> -->
+    </nav>
+
+    <div class="sidebar-footer">
+      <span>MED PLUS+ ©</span>
+      <span>Sistema de Chamados</span>
+      <span>Agenda técnica</span>
+      <span>Checklists</span>
+    </div>
+  </aside>
+
+  <header class="topbar painel-topbar">
+    <button id="sidebarToggle" class="icon-btn" type="button" aria-label="Abrir menu">☰</button>
+
+    <a class="brand painel-brand brand-logo-link" href="painel.html" aria-label="MED PLUS+ - Painel de Chamados">
+      <img class="brand-logo-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywsdWKH6rlDURrDoENalBtkXnhxike5bP4lesilVl-vBhsPrYmIIDLESb8VpR1e6AcRyxgXcyW8snNH4tSyIaJmTizACfOeqQYUjoaXhPE0MmMlHigietjYjKFLpEx5lccR3l10Q5RBwQMNBG8ENz6rAsMubobIyLRZa5DOLpWFtkMEH0Bx8_2LPVZFmb/s16000/logotipo-med-plus2025-1.png" alt="MED PLUS+" loading="eager" />
+    </a>
+
+    <div class="topbar-title">
+      <span class="title-icon">📋</span>
+      <h1>Painel de Chamados</h1>
+    </div>
+
+    <div class="topbar-actions">
+      <!-- <a class="btn btn-ghost hide-mobile" href="index.html">➕ Novo</a> -->
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Alternar tema">🌙</button>
+    </div>
+  </header>
+
+  <main class="painel-shell">
+    <section class="dashboard-row animate-in">
+      <article class="metric-card">
+        <span>📌 Total</span>
+        <strong id="metricTotal">0</strong>
+      </article>
+      <article class="metric-card">
+        <span>🔧 Em atendimento</span>
+        <strong id="metricAtendimento">0</strong>
+      </article>
+      <article class="metric-card">
+        <span>✅ Finalizados</span>
+        <strong id="metricFinalizado">0</strong>
+      </article>
+      <article class="metric-card">
+        <span>📅 Hoje</span>
+        <strong id="metricHoje">0</strong>
+      </article>
+    </section>
+
+    <section class="filters-card animate-in delay-1">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">Busca avançada</p>
+          <h2>Filtros do painel</h2>
+        </div>
+        <button id="reloadBtn" class="btn btn-secondary" type="button">🔄 Atualizar</button>
+      </div>
+
+      <div class="filters-search-row">
+        <div class="field search-field">
+          <label for="filtroBusca">🔎 Buscar</label>
+          <input id="filtroBusca" type="text" placeholder="Chamado, cliente, CNPJ, técnico..." />
+        </div>
+
+        <button id="filtersToggleBtn" class="filter-toggle-btn" type="button" aria-controls="advancedFiltersAccordion" aria-expanded="false" title="Abrir filtros avançados">
+          <svg class="filter-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M3 5h18l-7.2 8.1v4.8l-3.6 1.8v-6.6L3 5z"></path>
+          </svg>
+          <span>Filtros</span>
+        </button>
+      </div>
+
+      <div id="advancedFiltersAccordion" class="filters-accordion" hidden>
+        <div class="filters-grid filters-grid-advanced">
+          <div class="field">
+            <label for="filtroTecnico">👨‍🔧 Técnico</label>
+            <input id="filtroTecnico" type="text" placeholder="Nome do técnico" />
+          </div>
+          <div class="field">
+            <label for="filtroStatus">📌 Status</label>
+            <select id="filtroStatus">
+              <option value="">Todos</option>
+              <option>Aluguel</option>
+              <option>Avulso</option>
+              <option>Contrato</option>
+              <option>Desinstalação</option>
+              <option>Garantia</option>
+              <option>Instalação</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filtroSituacao">🔧 Situação</label>
+            <select id="filtroSituacao">
+              <option value="">Todas</option>
+              <option>Em atendimento 🔧</option>
+              <option>Finalizado ✅</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filtroPeriodo">🌗 Período</label>
+            <select id="filtroPeriodo">
+              <option value="">Todos</option>
+              <option>Manhã</option>
+              <option>Tarde</option>
+              <option>Noite</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filtroDataInicial">📅 Data inicial</label>
+            <input id="filtroDataInicial" type="date" />
+          </div>
+          <div class="field">
+            <label for="filtroDataFinal">📅 Data final</label>
+            <input id="filtroDataFinal" type="date" />
+          </div>
+          <div class="filter-actions">
+            <button id="clearFiltersBtn" class="btn btn-ghost" type="button">🧹 Limpar filtros</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="calls-section animate-in delay-2">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">Atendimentos</p>
+          <h2>Chamados encontrados</h2>
+        </div>
+        <span id="resultCount" class="badge">0 chamados</span>
+      </div>
+      <div id="chamadosList" class="calls-list"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <strong>🔍 Nenhum chamado encontrado</strong>
+        <p>Altere os filtros ou gere um novo chamado na tela de abertura.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="osModal" class="modal-os">
+    <div class="modal-header no-print">
+      <div>
+        <p class="eyebrow">Ordem de Serviço</p>
+        <h2 id="modalTitle">Gerar OS</h2>
+      </div>
+      <button id="closeModalBtn" class="icon-btn" type="button">✕</button>
+    </div>
+
+    <form id="formOS" class="os-form">
+      <input type="hidden" id="osNumeroChamado" name="numeroChamado" />
+
+      <section id="printArea" class="print-area">
+        <div class="print-header">
+          <a class="brand brand-logo-link print-brand-logo" href="#" aria-label="MED PLUS+">
+            <img class="brand-logo-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywsdWKH6rlDURrDoENalBtkXnhxike5bP4lesilVl-vBhsPrYmIIDLESb8VpR1e6AcRyxgXcyW8snNH4tSyIaJmTizACfOeqQYUjoaXhPE0MmMlHigietjYjKFLpEx5lccR3l10Q5RBwQMNBG8ENz6rAsMubobIyLRZa5DOLpWFtkMEH0Bx8_2LPVZFmb/s16000/logotipo-med-plus2025-1.png" alt="MED PLUS+" loading="eager" />
+          </a>
+
+          <div class="print-support">
+            <span>Para suporte:</span>
+            <strong><span class="whatsapp-symbol" aria-hidden="true">🟢</span> WhatsApp (11) 98872-0944</strong>
+          </div>
+        </div>
+
+        <div class="print-document-title">
+          <div class="print-title">
+            <h2>Ordem de Serviço</h2>
+            <p>Registro técnico de atendimento</p>
+          </div>
+          <div class="print-number">
+            <span>Nº OS</span>
+            <strong id="printNumero">MED-0000</strong>
+          </div>
+        </div>
+
+        <div class="os-grid">
+          <div class="field readonly"><label>🔢 Número do chamado</label><input id="osNumeroDisplay" readonly /></div>
+          <div class="field readonly"><label>👨‍🔧 Técnico</label><input id="osTecnico" name="tecnico" readonly /></div>
+          <div class="field readonly"><label>🏢 Cliente</label><input id="osCliente" name="cliente" readonly /></div>
+          <div class="field readonly"><label>🧭 Tipo do atendimento</label><input id="osTipoAtendimento" name="tipoAtendimento" readonly /></div>
+          <div class="field readonly"><label>📅 Data</label><input id="osData" name="data" readonly /></div>
+          <div class="field"><label>▶️ Hora início</label><input id="osHoraInicio" name="horaInicio" type="time" /></div>
+          <div class="field"><label>⏹️ Hora fim</label><input id="osHoraFim" name="horaFim" type="time" /></div>
+          <div class="field readonly"><label>🌗 Período</label><input id="osPeriodo" name="periodo" readonly /></div>
+          <div class="field readonly"><label>🧾 CNPJ</label><input id="osCnpj" name="cnpj" readonly /></div>
+          <div class="field field-wide readonly"><label>📍 Endereço</label><input id="osEndereco" name="endereco" readonly /></div>
+          <div class="field">
+            <label for="osSituacao">🔧 Situação</label>
+            <select id="osSituacao" name="situacao" required>
+              <option value="">Selecione...</option>
+              <option>Em atendimento 🔧</option>
+              <option>Finalizado ✅</option>
+            </select>
+          </div>
+          <div class="field readonly"><label>📌 Status</label><input id="osStatus" name="status" readonly /></div>
+          <div class="field readonly"><label>👤 Nome do responsável</label><input id="osNomeResponsavel" name="nomeResponsavel" readonly /></div>
+          <div class="field readonly"><label>📞 Telefone</label><input id="osTelefone" name="telefone" readonly /></div>
+
+          <div class="field field-full equipamentos-block">
+            <div class="inline-heading">
+              <label>🩺 Equipamentos</label>
+              <button id="addEquipamentoBtn" class="btn btn-secondary no-print" type="button">➕ Adicionar equipamento</button>
+            </div>
+            <div id="equipamentosContainer" class="equipamentos-container"></div>
+          </div>
+
+          <div class="field field-wide readonly"><label>⚠️ Descrição da falha</label><textarea id="osDescricaoFalha" name="descricaoFalha" rows="4" readonly></textarea></div>
+          <div class="field field-wide"><label>🛠️ Ação tomada pelo técnico</label><textarea id="osAcaoTomadaTecnico" name="acaoTomadaTecnico" rows="4" placeholder="Informe o que foi realizado no atendimento"></textarea></div>
+
+          <div class="field field-full no-print">
+            <label for="osFotos">📷 Fotos diversas</label>
+            <input id="osFotos" type="file" accept="image/*" multiple />
+            <small class="field-help">As fotos serão salvas automaticamente no Google Drive e a planilha receberá somente as URLs.</small>
+          </div>
+
+          <div class="field field-full fotos-block">
+            <label>🖼️ Fotos anexadas</label>
+            <div id="fotosPreview" class="fotos-preview"></div>
+          </div>
+
+          <div class="signature-grid field-full">
+            <div class="signature-card">
+              <div class="inline-heading">
+                <label>✍️ Assinatura do Cliente</label>
+                <button class="btn btn-ghost no-print" data-clear-signature="cliente" type="button">🧹 Limpar</button>
+              </div>
+              <canvas id="assinaturaCliente" width="520" height="180"></canvas>
+              <p>Responsável do Cliente</p>
+            </div>
+            <div class="signature-card">
+              <div class="inline-heading">
+                <label>✍️ Assinatura do Técnico</label>
+                <button class="btn btn-ghost no-print" data-clear-signature="tecnico" type="button">🧹 Limpar</button>
+              </div>
+              <canvas id="assinaturaTecnico" width="520" height="180"></canvas>
+              <p>Técnico Responsável</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal-actions no-print">
+        <button class="btn btn-primary" type="submit">💾 Salvar OS</button>
+        <button id="printBtn" class="btn btn-secondary" type="button">🖨️ Imprimir/PDF</button>
+        <button id="limparOSBtn" class="btn btn-ghost" type="button">🧹 Limpar campos técnicos</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
