@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MED PLUS+ | Abertura de Chamados</title>
+  <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEnOYKhxs5CbcqMeT-HttvPM5xzM1Gk_jV-ca9KFkPjk3x4O4TxDfj8fb7TMnOSiqRZgmbYDyKocyrcpR10Oij6Fhs1WZjzoe_5eAXpLEUS4jT5cEJkkdppXi6frqBWKbQjg06WeVpSRdLx1M2m91LhE-siLnAp0raZ5mOh1l3hMmehkoLSzsHRmPF_fwx/w400-h400/favicon-chamados.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blogger.googleusercontent.com/img/a/AVvXsEhIT6vHtQBms5KQAUIFegwTMweZ7ldZwunqMNtuLjsyJHSIBG84BCKdmX5uCtTN_lRr8_RYeOJd6ULiCAevaAGUM20D2XXZMomDmCLtw9nS49uywVQAxeVL_zjM52g_fIIfKxKH4EGlVG0YJMAjIrGGNhIRXCR13iZgLNPu1BPaDFV1xjCp0ho0169TXNL6=s1600">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app-body page-abertura">
+  <header class="topbar">
+    <a class="brand brand-logo-link" href="index.html" aria-label="MED PLUS+ - Abertura de Chamados">
+      <img class="brand-logo-img" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgywsdWKH6rlDURrDoENalBtkXnhxike5bP4lesilVl-vBhsPrYmIIDLESb8VpR1e6AcRyxgXcyW8snNH4tSyIaJmTizACfOeqQYUjoaXhPE0MmMlHigietjYjKFLpEx5lccR3l10Q5RBwQMNBG8ENz6rAsMubobIyLRZa5DOLpWFtkMEH0Bx8_2LPVZFmb/s16000/logotipo-med-plus2025-1.png" alt="MED PLUS+" loading="eager" />
+    </a>
+
+    <div class="topbar-title">
+      <span class="title-icon">📝</span>
+      <h1>Abertura de Chamados</h1>
+    </div>
+
+    <div class="topbar-actions">
+      <a class="btn btn-ghost hide-mobile" href="painel.html">📋 Painel</a>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Alternar tema">🌙</button>
+    </div>
+  </header><br>
+
+  <main class="page-shell">
+
+    
+    <section class="hero-card animate-in">
+      
+      <div>
+        <p class="eyebrow">Sistema de Chamados • Agenda • Checklists</p>
+        <h2>Gere chamados técnicos e envie direto para o painel.</h2>
+        <!-- <p class="hero-text">Preencha os dados do atendimento e acompanhe a execução pelo painel dos técnicos de campo.</p> -->
+      </div>
+      <div class="hero-status">
+        <span class="pulse-dot"></span>
+        <strong>Back End | On-line</strong>
+        <!-- <small>Google Sheets + Apps Script</small> -->
+      </div>
+      
+    </section>
+    
+
+    <section class="form-card animate-in delay-1">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Novo registro</p>
+          <h2>Dados do chamado</h2>
+        </div>
+        <span id="chamadoBadge" class="badge">🚑 MED-0000</span>
+      </div>
+
+      <form id="formAbertura" class="grid-form" autocomplete="off">
+        <input id="numeroChamadoAdmin" name="numeroChamado" type="hidden" />
+        <div class="field">
+          <label for="tecnico">👨‍🔧 Técnico</label>
+          <select id="tecnico" name="tecnico" required>
+            <option value="">Selecione...</option>
+            <option>Carlos Ramos</option>
+            <option>Danilo Tinoco</option>
+            <option>Kadu</option>
+            <option>Paulo Corrêa</option>
+            <option>Reginaldo</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cliente">🏢 Cliente</label>
+          <input id="cliente" name="cliente" type="text" placeholder="Nome do cliente" required />
+        </div>
+
+        <div class="field">
+          <label for="tipoAtendimento">🧭 Tipo do atendimento</label>
+          <select id="tipoAtendimento" name="tipoAtendimento" required>
+            <option value="">Selecione...</option>
+            <option>Atendimento Chat</option>
+            <option>Remoto</option>
+            <option>Telefônico</option>
+            <option>Visita técnica</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="data">📅 Data</label>
+          <input id="data" name="data" type="date" required />
+        </div>
+
+        <div class="field">
+          <label for="hora">⏰ Hora</label>
+          <input id="hora" name="hora" type="time" required />
+        </div>
+
+        <div class="field">
+          <label for="periodo">🌗 Período</label>
+          <select id="periodo" name="periodo" required>
+            <option value="">Selecione...</option>
+            <option>Manhã</option>
+            <option>Tarde</option>
+            <option>Noite</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cnpj">🧾 CNPJ</label>
+          <input id="cnpj" name="cnpj" type="text" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00" required />
+          <small class="field-help" id="cnpjHelp"></small>
+        </div>
+
+        <div class="field field-wide">
+          <label for="endereco">📍 Endereço</label>
+          <input id="endereco" name="endereco" type="text" placeholder="Rua, número, bairro, cidade/UF" required />
+        </div>
+
+        <div class="field">
+          <label for="situacao">🔧 Situação</label>
+          <select id="situacao" name="situacao" required>
+            <option value="">Selecione...</option>
+            <option>Em atendimento 🔧</option>
+            <option>Finalizado ✅</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="modeloEquipamento">🩺 Modelo equipamento</label>
+          <input id="modeloEquipamento" name="modeloEquipamento" type="text" placeholder="Ex.: Monitor, Raio-X, Bomba de infusão" required />
+        </div>
+
+        <div class="field">
+          <label for="status">📌 Status</label>
+          <select id="status" name="status" required>
+            <option value="">Selecione...</option>
+            <option>Aluguel</option>
+            <option>Avulso</option>
+            <option>Contrato</option>
+            <option>Desinstalação</option>
+            <option>Garantia</option>
+            <option>Instalação</option>
+          </select>
+        </div>
+
+        <div class="field field-wide">
+          <label for="descricaoFalha">⚠️ Descrição da falha</label>
+          <textarea id="descricaoFalha" name="descricaoFalha" rows="4" placeholder="Descreva o problema informado pelo cliente" required></textarea>
+        </div>
+
+        <div class="field field-wide">
+          <label for="acaoTomada">🛠️ Ação tomada</label>
+          <textarea id="acaoTomada" name="acaoTomada" rows="4" placeholder="Caso já exista alguma ação inicial, informe aqui"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="nomeResponsavel">👤 Nome do responsável</label>
+          <input id="nomeResponsavel" name="nomeResponsavel" type="text" placeholder="Responsável do cliente" required />
+        </div>
+
+        <div class="field">
+          <label for="telefone">📞 Telefone</label>
+          <input id="telefone" name="telefone" type="text" inputmode="tel" maxlength="15" placeholder="(00) 00000-0000" required />
+          <small class="field-help" id="telefoneHelp"></small>
+        </div>
+
+        <div class="form-actions field-full">
+          <button id="formSubmitBtn" class="btn btn-primary" type="submit">✅ Gerar OS</button>
+          <button class="btn btn-secondary" type="reset">🧹 Limpar</button>
+          <button id="cancelEditBtn" class="btn btn-ghost hidden" type="button">↩️ Cancelar edição</button>
+          <a class="btn btn-ghost" href="painel.html">📋 Abrir Painel</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="admin-card animate-in delay-2">
+      <div class="section-heading compact">
+        <div>
+          <p class="eyebrow">Área administrativa</p>
+          <h2>Editar e excluir chamados</h2>
+        </div>
+        <button id="adminReloadBtn" class="btn btn-secondary" type="button">🔄 Atualizar lista</button>
+      </div>
+
+      <div class="admin-toolbar">
+        <div class="field">
+          <label for="adminBusca">🔎 Buscar chamado</label>
+          <input id="adminBusca" type="text" placeholder="Número, cliente, técnico ou CNPJ" />
+        </div>
+        <div class="field">
+          <label for="adminSituacao">🔧 Filtrar situação</label>
+          <select id="adminSituacao">
+            <option value="">Todas</option>
+            <option>Em atendimento 🔧</option>
+            <option>Finalizado ✅</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="color: #f4f4f4;">Chamado</th>
+              <th style="color: #f4f4f4;">Cliente</th>
+              <th style="color: #f4f4f4;">Técnico</th>
+              <th style="color: #f4f4f4;">Data</th>
+              <th style="color: #f4f4f4;">Situação</th>
+              <th style="color: #f4f4f4;">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="adminChamadosTbody"></tbody>
+        </table>
+      </div>
+
+      <div id="adminEmptyState" class="empty-state hidden">
+        <strong>📭 Nenhum chamado encontrado</strong>
+        <p>Gere um chamado ou clique em atualizar lista para consultar a planilha.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="footer">MED PLUS+ © | Sistema de Chamados</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
