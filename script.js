@@ -375,7 +375,7 @@ function montarMensagemResumoChamado(chamado) {
 ` +
     `Telefone: *_${telefone}_*
 ` +
-    `=======================    
+    `====================    
 ` +
     `https://solucoesmedplus.github.io/painel-de-chamados/index.html`;    
 }
