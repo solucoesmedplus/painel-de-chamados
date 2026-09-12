@@ -1,0 +1,24 @@
+{
+  "name": "MED PLUS+ | Sistema de Chamados",
+  "short_name": "MED PLUS+",
+  "description": "Abertura e painel de chamados técnicos MED PLUS+.",
+  "lang": "pt-BR",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#071a23",
+  "theme_color": "#071a23",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEnOYKhxs5CbcqMeT-HttvPM5xzM1Gk_jV-ca9KFkPjk3x4O4TxDfj8fb7TMnOSiqRZgmbYDyKocyrcpR10Oij6Fhs1WZjzoe_5eAXpLEUS4jT5cEJkkdppXi6frqBWKbQjg06WeVpSRdLx1M2m91LhE-siLnAp0raZ5mOh1l3hMmehkoLSzsHRmPF_fwx/w400-h400/favicon-chamados.png",
+      "sizes": "400x400",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
