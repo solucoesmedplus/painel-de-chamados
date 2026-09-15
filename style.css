@@ -3372,3 +3372,53 @@ input[type="date"] {
   }
 }
 
+/* Preloader Estilizado */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Fundo preto imediato */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Acima de TUDO */
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-content img {
+    width: 180px;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Spinner de carregamento técnico */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(207, 10, 44, 0.2);
+    border-top: 3px solid var(--vermelho-tecnico);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* Classe para remover o loader via JS */
+#preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
